@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+const BASE = 'https://jansetuai-1.onrender.com/api'
 
 async function req(path, opts = {}) {
   try {
