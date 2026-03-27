@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy: #1e3a5f;
+  --navy-dark: #152d4d;
+  --navy-light: #2a4f82;
+  --saffron: #FF9933;
+  --india-green: #138808;
+  --india-blue: #000080;
+  --blue-accent: #2563eb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f0f4f8;
+  color: #1a1a2e;
+}
+
+/* India Flag Strip */
+.flag-strip {
+  height: 5px;
+  background: linear-gradient(to right, var(--saffron) 33.33%, white 33.33%, white 66.66%, var(--india-green) 66.66%);
+}
+
+/* Navy Sidebar */
+.sidebar {
+  background: linear-gradient(180deg, #1e3a5f 0%, #152d4d 100%);
+  min-height: 100vh;
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30,58,95,0.1);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 4px 20px rgba(30,58,95,0.18);
+  transform: translateY(-1px);
+}
+
+/* KPI Cards */
+.kpi-card {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+  border-radius: 14px;
+  color: white;
+}
+.kpi-card.saffron { background: linear-gradient(135deg, #FF9933 0%, #e67e22 100%); }
+.kpi-card.green { background: linear-gradient(135deg, #138808 0%, #16a34a 100%); }
+.kpi-card.red { background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); }
+
+/* Status badges */
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 2px 10px; border-radius: 9999px;
+  font-size: 0.72rem; font-weight: 600;
+}
+.badge-pending { background: #fef3c7; color: #92400e; }
+.badge-in_progress { background: #dbeafe; color: #1e40af; }
+.badge-resolved { background: #d1fae5; color: #065f46; }
+.badge-escalated { background: #fee2e2; color: #991b1b; }
+.badge-closed { background: #f3f4f6; color: #374151; }
+
+.badge-High { background: #fee2e2; color: #991b1b; }
+.badge-Medium { background: #fef3c7; color: #92400e; }
+.badge-Low { background: #d1fae5; color: #065f46; }
+
+/* GIS Score colors */
+.gis-EXCELLENT { color: #16a34a; }
+.gis-GOOD { color: #2563eb; }
+.gis-AVERAGE { color: #d97706; }
+.gis-POOR { color: #ea580c; }
+.gis-CRITICAL { color: #dc2626; }
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #1e3a5f, #2563eb);
+  color: white; border: none; border-radius: 8px;
+  padding: 10px 20px; font-weight: 600;
+  cursor: pointer; transition: opacity 0.2s, transform 0.2s;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+.btn-saffron {
+  background: linear-gradient(135deg, #FF9933, #e67e22);
+  color: white; border: none; border-radius: 8px;
+  padding: 10px 20px; font-weight: 600;
+  cursor: pointer; transition: opacity 0.2s;
+}
+.btn-saffron:hover { opacity: 0.9; }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fade-in { animation: fadeIn 0.4s ease forwards; }
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+/* Table */
+.table-row:nth-child(even) { background: #f8fafc; }
+.table-row:hover { background: #eff6ff; }
+
+/* Form inputs */
+.form-input {
+  width: 100%; border: 1.5px solid #d1d5db;
+  border-radius: 8px; padding: 10px 14px;
+  font-size: 0.9rem; transition: border-color 0.2s;
+  outline: none;
+}
+.form-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+
+.form-label { font-size: 0.85rem; font-weight: 600; color: #374151; margin-bottom: 4px; }
+
+/* Gov bar */
+.gov-bar {
+  background: #1e3a5f;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.72rem;
+  padding: 4px 16px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+/* Score ring */
+.score-ring {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; font-weight: 800;
+  border: 5px solid;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 3px; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; right: 24px;
+  background: #1e3a5f; color: white;
+  padding: 12px 20px; border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 9999; animation: fadeIn 0.3s ease;
+  display: flex; align-items: center; gap: 8px;
+}
+.toast.success { background: #065f46; }
+.toast.error { background: #991b1b; }
