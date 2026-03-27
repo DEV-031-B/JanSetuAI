@@ -39,6 +39,12 @@ app.get('/health', (req, res) => res.json({
   time: new Date()
 }))
 
+app.get('/', (req, res) => res.json({
+  message: 'JanSetu AI v2.0 Backend is Live! 🚀',
+  status: 'Operational',
+  endpoints: '/api/complaints, /api/auth, /api/wards, /api/ai, /health'
+}))
+
 app.use((req, res) => {
   res.status(404).json({ error: `Route ${req.path} not found` })
 })
